@@ -168,6 +168,12 @@ object DataStore : OnPreferenceDataStoreChangeListener {
 
     var globalAllowInsecure by configurationStore.boolean(Key.GLOBAL_ALLOW_INSECURE) { false }
 
+    // activation / bootstrap
+    var authActivated by configurationStore.boolean(Key.AUTH_ACTIVATED)
+    var authCode by configurationStore.string(Key.AUTH_CODE) { "" }
+    var authDeviceId by configurationStore.string(Key.AUTH_DEVICE_ID) { "" }
+    var authServerUrl by configurationStore.string(Key.AUTH_SERVER_URL) { "http://10.0.2.2:8080/login" }
+
     // old cache, DO NOT ADD
 
     var dirty by profileCacheStore.boolean(Key.PROFILE_DIRTY)

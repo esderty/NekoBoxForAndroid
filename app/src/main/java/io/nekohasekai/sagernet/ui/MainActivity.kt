@@ -124,6 +124,13 @@ class MainActivity : ThemedActivity(),
                 .setPositiveButton(android.R.string.ok, null)
                 .show()
         }
+
+        if (intent?.getBooleanExtra(CodeEntryActivity.EXTRA_AUTO_CONNECT, false) == true) {
+            // Delay until UI is ready; this will show VPN permission prompt if needed.
+            binding.root.post {
+                connect.launch(null)
+            }
+        }
     }
 
     fun refreshNavMenu(clashApi: Boolean) {
